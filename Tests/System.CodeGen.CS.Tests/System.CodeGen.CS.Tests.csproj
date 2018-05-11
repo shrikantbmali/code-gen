@@ -7,23 +7,31 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="TestData\PublicClass.cs" />
+    <Compile Remove="TestData\SimpleClass.cs" />
+    <Compile Remove="TestData\StaticClass.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="TestData\StaticClass.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\SimpleClass.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\PublicClass.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.7.0" />
     <PackageReference Include="MSTest.TestAdapter" Version="1.2.1" />
     <PackageReference Include="MSTest.TestFramework" Version="1.2.1" />
-    <PackageReference Include="NUnit" Version="3.10.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\System.CodeGen.CS\System.CodeGen.CS.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="TestData\EmptyClass.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="TestData\PublicClass.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
 
 </Project>

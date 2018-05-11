@@ -11,12 +11,19 @@ namespace System.CodeGen.CS
         {
         }
 
-        public ClassGenerator(string className, AccessSpecifier accessSpecifier)
+        public ClassGenerator(string className, AccessSpecifier accessSpecifier): this(className, accessSpecifier, ClassType.Default)
+        {
+        }
+
+        public ClassGenerator(string className, AccessSpecifier accessSpecifier, ClassType classType)
         {
             _stringBuilder = new StringBuilder();
 
             if (accessSpecifier != AccessSpecifier.Default)
                 AddLiteralBlock(GetAccessSpecifier(accessSpecifier));
+
+            if (classType != ClassType.Default)
+                AddLiteralBlock(GetClassType(classType));
 
             AddLiteralBlock(KeyWords.Class);
 
@@ -41,6 +48,18 @@ namespace System.CodeGen.CS
             {
                 case AccessSpecifier.Public:
                     return KeyWords.PublicAccessSpecifier;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(accessSpecifier), accessSpecifier, null);
+            }
+        }
+
+        private string GetClassType(ClassType accessSpecifier)
+        {
+            switch (accessSpecifier)
+            {
+                case ClassType.Static:
+                    return KeyWords.Static;
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(accessSpecifier), accessSpecifier, null);
             }
