@@ -1,10 +1,8 @@
-﻿using System;
-using System.CodeGen.CS;
-using System.IO;
+﻿using System.IO;
 using System.Reflection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Tests
+namespace System.CodeGen.CS.Tests
 {
     [TestClass]
     public class Class_Generation
@@ -33,12 +31,23 @@ namespace Tests
         }
 
         [TestMethod]
-        public void Should_Be_Able_To_Set_Access_Specifier_To_The_Class()
+        public void Should_Be_Able_To_Set_Public_Access_Specifier_To_The_Class()
         {
             var classGenerator = new ClassGenerator("PublicClass", AccessSpecifier.Public);
             var classData = classGenerator.GetClass();
 
             var testData = GetTestData("PublicClass");
+
+            Assert.AreEqual(testData, classData);
+        }
+
+        [TestMethod]
+        public void Should_Be_Able_To_Set_Internal_Access_Specifier_To_The_Class()
+        {
+            var classGenerator = new ClassGenerator("InternalClass", AccessSpecifier.Internal);
+            var classData = classGenerator.GetClass();
+
+            var testData = GetTestData("InternalClass");
 
             Assert.AreEqual(testData, classData);
         }
@@ -51,6 +60,18 @@ namespace Tests
             var classData = classGenerator.GetClass();
 
             var testData = GetTestData("StaticClass");
+
+            Assert.AreEqual(testData, classData);
+        }
+
+        [TestMethod]
+        public void Should_Be_Able_To_Create_An_Internal_Static_Class_With_A_Given_Name()
+        {
+            var classGenerator = new ClassGenerator("InternalStaticClass", AccessSpecifier.Internal, ClassType.Static);
+
+            var classData = classGenerator.GetClass();
+
+            var testData = GetTestData("InternalStaticClass");
 
             Assert.AreEqual(testData, classData);
         }

@@ -3,6 +3,7 @@
     public enum AccessSpecifier
     {
         Default,
+        Internal,
         Public
     }
 }

@@ -1,0 +1,1 @@
+﻿internal static class InternalStaticClass{}

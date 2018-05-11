@@ -46,8 +46,10 @@ namespace System.CodeGen.CS
         {
             switch (accessSpecifier)
             {
+                case AccessSpecifier.Internal:
+                    return KeyWords.Internal;
                 case AccessSpecifier.Public:
-                    return KeyWords.PublicAccessSpecifier;
+                    return KeyWords.Public;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(accessSpecifier), accessSpecifier, null);
             }
@@ -59,7 +61,6 @@ namespace System.CodeGen.CS
             {
                 case ClassType.Static:
                     return KeyWords.Static;
-                    break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(accessSpecifier), accessSpecifier, null);
             }

@@ -7,12 +7,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="TestData\InternalClass.cs" />
+    <Compile Remove="TestData\InternalStaticClass.cs" />
     <Compile Remove="TestData\PublicClass.cs" />
     <Compile Remove="TestData\SimpleClass.cs" />
     <Compile Remove="TestData\StaticClass.cs" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="TestData\InternalClass.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\InternalStaticClass.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="TestData\StaticClass.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
