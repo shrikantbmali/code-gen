@@ -10,7 +10,7 @@ namespace System.CodeGen.CS.Tests
         [TestMethod]
         public void Should_Be_Able_To_Create_A_Class_With_A_Given_Name()
         {
-            var classGenerator = new ClassGenerator("SimpleClass");
+            var classGenerator = new ClassGenerator(new ClassData("SimpleClass"));
 
             var classData = classGenerator.GetClass();
             var testData = TestHelper.GetTestData("SimpleClass");
@@ -21,7 +21,7 @@ namespace System.CodeGen.CS.Tests
         [TestMethod]
         public void Should_Be_Able_To_Set_Public_Access_Specifier_To_The_Class()
         {
-            var classGenerator = new ClassGenerator("PublicClass", AccessSpecifier.Public);
+            var classGenerator = new ClassGenerator(new ClassData("PublicClass", AccessSpecifier.Public));
 
             var classData = classGenerator.GetClass();
             var testData = TestHelper.GetTestData("PublicClass");
@@ -32,7 +32,7 @@ namespace System.CodeGen.CS.Tests
         [TestMethod]
         public void Should_Be_Able_To_Set_Internal_Access_Specifier_To_The_Class()
         {
-            var classGenerator = new ClassGenerator("InternalClass", AccessSpecifier.Internal);
+            var classGenerator = new ClassGenerator(new ClassData("InternalClass", AccessSpecifier.Internal));
 
             var classData = classGenerator.GetClass();
             var testData = TestHelper.GetTestData("InternalClass");
@@ -43,7 +43,7 @@ namespace System.CodeGen.CS.Tests
         [TestMethod]
         public void Should_Be_Able_To_Create_A_Static_Class_With_A_Given_Name()
         {
-            var classGenerator = new ClassGenerator("StaticClass", AccessSpecifier.Public, ClassType.Static);
+            var classGenerator = new ClassGenerator(new ClassData("StaticClass", AccessSpecifier.Public, ClassType.Static));
 
             var classData = classGenerator.GetClass();
             var testData = TestHelper.GetTestData("StaticClass");
@@ -54,7 +54,7 @@ namespace System.CodeGen.CS.Tests
         [TestMethod]
         public void Should_Be_Able_To_Create_An_Internal_Static_Class_With_A_Given_Name()
         {
-            var classGenerator = new ClassGenerator("InternalStaticClass", AccessSpecifier.Internal, ClassType.Static);
+            var classGenerator = new ClassGenerator(new ClassData("InternalStaticClass", AccessSpecifier.Internal, ClassType.Static));
 
             var classData = classGenerator.GetClass();
             var testData = TestHelper.GetTestData("InternalStaticClass");

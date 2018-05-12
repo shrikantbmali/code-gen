@@ -7,27 +7,19 @@ namespace System.CodeGen.CS
     {
         private readonly StringBuilder _stringBuilder;
 
-        public ClassGenerator(string className): this(className, AccessSpecifier.Default)
-        {
-        }
-
-        public ClassGenerator(string className, AccessSpecifier accessSpecifier): this(className, accessSpecifier, ClassType.Default)
-        {
-        }
-
-        public ClassGenerator(string className, AccessSpecifier accessSpecifier, ClassType classType)
+        public ClassGenerator(ClassData classData)
         {
             _stringBuilder = new StringBuilder();
 
-            if (accessSpecifier != AccessSpecifier.Default)
-                AddLiteralBlock(GetAccessSpecifier(accessSpecifier));
+            if (classData.AccessSpecifier != AccessSpecifier.Default)
+                AddLiteralBlock(GetAccessSpecifier(classData.AccessSpecifier));
 
-            if (classType != ClassType.Default)
-                AddLiteralBlock(GetClassType(classType));
+            if (classData.ClassType != ClassType.Default)
+                AddLiteralBlock(GetClassType(classData.ClassType));
 
             AddLiteralBlock(KeyWords.Class);
 
-            _stringBuilder.Append(className);
+            _stringBuilder.Append(classData.Name);
             _stringBuilder.Append(KeyWords.CodeBlock);
         }
 
