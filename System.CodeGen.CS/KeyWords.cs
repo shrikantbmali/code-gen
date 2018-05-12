@@ -8,6 +8,6 @@
         public const string Public = "public";
         public const string Internal = "internal";
         public const string Static = "static";
-        public static readonly string DefaultAccessSpecifier = string.Empty;
+        public static readonly string EmptyLiternal = string.Empty;
     }
 }
