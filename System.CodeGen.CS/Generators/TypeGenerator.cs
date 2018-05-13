@@ -1,16 +1,17 @@
-﻿using System.IO;
-using System.Text;
+﻿using System.Text;
 
 namespace System.CodeGen.CS
 {
-    public class ClassGenerator
+    public abstract class TypeGenerator
     {
         private readonly ClassData _classData;
+        private readonly string _keyType;
         private readonly StringBuilder _stringBuilder;
 
-        public ClassGenerator(ClassData classData)
+        protected TypeGenerator(ClassData classData, string keyType)
         {
             _classData = classData;
+            _keyType = keyType;
             _stringBuilder = new StringBuilder();
         }
 
@@ -18,7 +19,7 @@ namespace System.CodeGen.CS
         {           
             AddLiteralBlock(_classData.AccessSpecifier.GetLiteral());
             AddLiteralBlock(_classData.ClassType.GetLiteral());
-            AddLiteralBlock(KeyWords.Class);
+            AddLiteralBlock(_keyType);
 
             _stringBuilder.Append(_classData.Name);
             _stringBuilder.Append(KeyWords.CodeBlock);

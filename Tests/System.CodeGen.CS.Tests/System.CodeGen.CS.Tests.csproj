@@ -12,6 +12,7 @@
     <Compile Remove="TestData\PublicClass.cs" />
     <Compile Remove="TestData\SimpleClass.cs" />
     <Compile Remove="TestData\StaticClass.cs" />
+    <Compile Remove="TestData\Structs\SimpleStruct.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,6 +29,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="TestData\PublicClass.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Structs\SimpleStruct.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
